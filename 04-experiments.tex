@@ -1,0 +1,107 @@
+\section{Methodology}
+
+\subsection{Simulation Parameters}
+
+We gathered our TTR and other performance statistics using the
+Virtutech Simics~\cite{magnussonchristensson02} full 
+system simulator version 3.0.x.  We model an 8-way Chip Multiprocessor
+of ultraSPARC III cores.   Our processing cores
+are in-order with 32~KB 8-way L1 instruction and data
+caches with a 3 cycle latency.  Each core also has a private, 256~KB
+8-way L2 cache with a 10 cycle latency.  The L2 and L1 private cashes
+are non-inclusive with respect to one another.  All cores share a 16-way L3
+cache, which is inclusive of the contents of the L2 and L1 caches, and
+is the last level of cache before DRAM.  The size of this LLC varies
+between experiments, and we collected data using a 4~MB, and 8~MB L3
+cache.  Off-chip memory accesses have a static 300 cycle 
+latency to approximate best-case multi-core memory timings as seen by
+Brown and Tullsen~\cite{browntullsen08}.  Only memory operations are
+modeled in detail and all non-memory operations are given a latency of
+1.  Since we use a three level cache hierarchy, a large number of
+memory accesses which would normally influence the LLC replacement policy are
+filtered out by the L1s and large L2s.
+
+\subsection{Benchmarks}
+
+We use a selection of benchmarks chosen from the Nas Parallel
+Benchmark(NPB)  Suite~\cite{NPB94} and Spec2k6 benchmark
+suite~\cite{henning05}.  The NPB benchmarks are single
+program, multi-threaded, and use the W-size reference input.  The Spec2k6 benchmarks are
+multi-programed, running eight copies of the given benchmark.  As we
+move to larger LLCs, the differences between cache policies
+running  the NPB benchmarks
+becomes less pronounced, because the W-size working set becomes more
+and more cache resident.  Many of the Spec2k6 benchmarks have much
+larger working sets and  continue to
+experience many cache misses even with larger caches.  There is
+no fairness policy or static partitioning of the LLC, so all threads
+and programs have equal access to LLC capacity.
+
+For each benchmark, we fast-forward to the middle of program execution
+and then spend 100 million instructions per core warming up the
+caches.  After this, we track our performance statistics and gather
+TTR samples for another 250 million instructions per core.
+Fast-forwarding is done to the beginning of the region of parallelized
+work for the NPB benchmarks, and for 20 billion instructions
+for each of the Spec2k6 benchmarks.
+
+\subsection{Cache Management Policies}
+\label{sec:policies}
+
+In our experiments we analyze the differences between four LLC
+management policies, namely Least Recently Used (LRU), Not Recently Used
+(NRU), Static Re-reference Interval Prediction (SRRIP), and Dynamic
+Re-reference Interval Prediction (DRRIP)~\cite{jaleeltheobald10}.  A brief
+description of each policy follows in the context of an LLC.
+
+LRU works by maintaining a list with a head and a tail for each set in
+the LLC.  When a cache
+line enters the LLC, it is placed at the head of the list for its
+cache set.  When a cache line needs to be removed to make space for
+another, the tail is chosen and evicted.  Every time a cache line is
+reused, it is promoted to the head of the list.
+
+NRU works by maintaining a 1-bit counter for each cache block in the
+LLC.  When a cache block is first brought into the LLC its counter is
+set to 0.  When a cache line needs to be removed from a set, a scan is
+done to see if any have their counter set to 1.  If a 1 is found, then
+it is evicted.  If no 1 is found, then all counters are incremented and
+the scan to find a 1 repeats.  Every time a cache line is reused, its
+counter is set to 0.
+
+SRRIP and DRRIP both work on the basis of Re-reference Interval
+Prediction, which is similar in concept to a 2-bit NRU-type policy,
+where all cache blocks have a 2-bit counter instead of NRU's single
+bit.  When a cache block is brought into the cache, it is assigned an
+initial Re-reference Prediction Value (RRPV) for its counter.  When a cache block
+needs to be evicted, a scan is done to find a block with an RRPV of 3,
+and that block is evicted.  If no 3 is found, all RRPVs in the set are
+incremented, and the process is repeated.  This continues until a 3 is
+found and evicted.  Every time a cache line is reused, its counter is
+set to 0.
+
+SRRIP works by statically inserting blocks with an RRPV of 2.  DRRIP
+has the option of inserting with an RRPV of 2 or 3, depending on which
+is performing better at the time.  If DRRIP decides to insert a block
+with an RRPV of 3, there is a small chance that it will insert the
+block with 2 instead.
+
+This paper does not seek to validate or debunk the claims put forth in
+the works that propose any of the above mentioned caching policies.
+The intent of this paper is to analyze and visualize the different
+behaviors of varied caching policies with respect to the TTR metric. 
+
+\subsection{TRR Data Collection}
+
+We collect TTR data in real time during our Simics simulation runs.
+Every time a block is evicted from the LLC its address is added to a
+list that tracks all of the previous 8 million evictions from the
+cache, along with a timestamp of when the eviction occurred. 
+When a cache block is fetched to be placed into the LLC, its address
+is compared against the list of 8 million recent evictions, searching
+from the most recent first.  If there
+is a match, then we consider that to be a recache, and we increment
+the TTR bin corresponding to the amount of time the cache block spent
+out of the cache.  We only track recaches that happen within 40
+million cycles, as recaches within this window seem to have the
+greatest impact on performance.
