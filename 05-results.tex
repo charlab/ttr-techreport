@@ -26,110 +26,79 @@ graphs (LRU, NRU, SRRIP, and DRRIP) is the same in both X and Y
 directions, so they are all directly comparable.  When moving between
 the 4~MB and 8~MB visualizatoins, the scales may be different.
 
-\begin{figure}
+% This is the format for discussing in the paper
+\begin{figure*}
+  \centerline{
   \psfig{figure=figures/cg_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/cg_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+  }
 \caption{Time to Recache}
-\label{Fig:performance}
-\end{figure}
-\begin{figure}
+\label{Fig:performance:cg}
+\end{figure*}
+\begin{figure*}
+  \centerline{
   \psfig{figure=figures/ep_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/ep_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+  }
 \caption{Time to Recache}
-\label{Fig:performance}
-\end{figure}
-\begin{figure}
+\label{Fig:performance:ep}
+\end{figure*}
+\begin{figure*}
+  \centerline{
   \psfig{figure=figures/lu_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/lu_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+  }
 \caption{Time to Recache}
-\label{Fig:performance}
-\end{figure}
-\begin{figure}
+\label{Fig:performance:lu}
+\end{figure*}
+\begin{figure*}
+  \centerline{
   \psfig{figure=figures/mg_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/mg_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+  }
 \caption{Time to Recache}
-\label{Fig:performance}
-\end{figure}
+\label{Fig:performance:mg}
+\end{figure*}
 
-%% \begin{figure}
-%% %\vspace{-0.20in}
-%% %\hspace{1.6in}
-%% %\centerline{
-%%   %\psfig{figure=figures/cg_recache4MB.eps,width=2.4in,height=2.0in}
-%%   \psfig{figure=figures/cg_recache4MB.eps,width=\columnwidth}
-%% %}
-%% %% \centerline{
-%%   %\psfig{figure=figures/cg_recache8MB.eps,width=2.4in,height=2.0in}
-%%   \psfig{figure=figures/cg_recache8MB.eps,width=\columnwidth}
-%%   %\psfig{figure=figures/cg_recache4MB.eps,width=2.4in,height=2.0in}
-%%   %\psfig{figure=figures/cg_ipc.eps,width=2.4in,height=2.0in}
-%% %% }
-%% %% \centerline{
-%% %%   \psfig{figure=figures/ep_recache4MB.eps,width=2.4in,height=2.0in}
-%% %%   \psfig{figure=figures/ep_recache8MB.eps,width=2.4in,height=2.0in}
-%% %%   %\psfig{figure=figures/ep_recache4MB.eps,width=2.4in,height=2.0in}
-%% %% }
-%% %% \centerline{
-%% %%   \psfig{figure=figures/lu_recache4MB.eps,width=2.4in,height=2.0in}
-%% %%   \psfig{figure=figures/lu_recache8MB.eps,width=2.4in,height=2.0in}
-%% %%   %\psfig{figure=figures/lu_recache4MB.eps,width=2.4in,height=2.0in}
-%% %% }
-%% %% \centerline{
-%% %%   \psfig{figure=figures/mg_recache4MB.eps,width=2.4in,height=2.0in}
-%% %%   \psfig{figure=figures/mg_recache8MB.eps,width=2.4in,height=2.0in}
-%% %%   %\psfig{figure=figures/mg_recache4MB.eps,width=2.4in,height=2.0in}
-%% %% }
-%% \caption{Time to Recache}
-%% \label{Fig:performance}
-%% \end{figure}
-
-% \begin{figure*}
-% %\hspace{1.6in}
-% \centerline{
-%   \psfig{figure=figures/sp_recache4MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/sp_recache8MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/sp_recache4MB.eps,width=2.4in,height=2.0in}
-% }
-% \centerline{
-%   \psfig{figure=figures/astar_recache4MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/astar_recache8MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/astar_recache4MB.eps,width=2.4in,height=2.0in}
-% }
-% \centerline{
-%   \psfig{figure=figures/bwaves_recache4MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/bwaves_recache8MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/bwaves_recache4MB.eps,width=2.4in,height=2.0in}
-% }
-% \centerline{
-%   \psfig{figure=figures/dealII_recache4MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/dealII_recache8MB.eps,width=2.4in,height=2.0in}
-%   \psfig{figure=figures/dealII_recache4MB.eps,width=2.4in,height=2.0in}
-% }
-% \caption{Time to Recache}
-% \label{Fig:performance2}
-% \end{figure*}
+% This is the format for including at the end
+\begin{figure*}
+\centerline{
+  \psfig{figure=figures/sp_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/sp_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+}
+\centerline{
+  \psfig{figure=figures/astar_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/astar_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+}
+\centerline{
+  \psfig{figure=figures/bwaves_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/bwaves_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+}
+\centerline{
+  \psfig{figure=figures/dealII_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/dealII_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+}
+\caption{Time to Recache}
+\label{Fig:performance2}
+\end{figure*}
 
 \begin{figure*}
 %\hspace{1.6in}
 \centerline{
-  \psfig{figure=figures/ua_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/ua_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/ua_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/ua_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/ua_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \centerline{
-  \psfig{figure=figures/bzip2_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/bzip2_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/bzip2_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/bzip2_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/bzip2_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \centerline{
-  \psfig{figure=figures/GemsFDTD_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/GemsFDTD_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/GemsFDTD_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/GemsFDTD_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/GemsFDTD_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \centerline{
-  \psfig{figure=figures/gobmk_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/gobmk_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/gobmk_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/gobmk_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/gobmk_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \caption{Time to Recache}
 \label{Fig:performance3}
@@ -138,25 +107,21 @@ the 4~MB and 8~MB visualizatoins, the scales may be different.
 \begin{figure*}
 %\hspace{1.6in}
 \centerline{
-  \psfig{figure=figures/gromacs_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/gromacs_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/gromacs_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/gromacs_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/gromacs_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \centerline{
-  \psfig{figure=figures/h264ref_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/h264ref_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/h264ref_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/h264ref_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/h264ref_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \centerline{
-  \psfig{figure=figures/hmmer_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/hmmer_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/hmmer_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/hmmer_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/hmmer_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \centerline{
-  \psfig{figure=figures/leslie3d_recache4MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/leslie3d_recache8MB.eps,width=2.4in,height=2.0in}
-  \psfig{figure=figures/leslie3d_recache4MB.eps,width=2.4in,height=2.0in}
+  \psfig{figure=figures/leslie3d_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/leslie3d_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
 }
 \caption{Time to Recache}
-\label{Fig:performance2}
+\label{Fig:performance4}
 \end{figure*}
