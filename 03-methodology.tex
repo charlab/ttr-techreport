@@ -39,24 +39,29 @@ recached very soon afterwards, suggesting that it should not have
 been evicted in the first place.
 
 \begin{figure*}
-  \centerline{
+  %\centerline{
   \psfig{figure=figures/cg_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/cg_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-  }
+  %}
 \caption{CG Time to Recache}
 \label{Fig:performance:cg}
 \end{figure*}
 
 In Figure~\ref{Fig:performance:cg}, we see an example of a TTR graph for 
-the CG benchmark for both a 4MB LLC and an 8MB LLC.  A TTR graph is a
-line-graph representation of a histogram of TTR values.  The majority of
-the results in this paper are presented in this format.  The bins of a
-TTR graph, along the X-axis,  are 10,000 cycle-long periods of time that a cache block has
+the CG benchmark for both a 4MB LLC and an 8MB LLC and across the four 
+cache insertion policies we tested.  
+A TTR graph is a line-graph representation of a histogram of TTR values.  
+The majority of the results in this paper are presented in this format.  
+The bins of a TTR graph, along the X-axis,  are 10,000 cycle-long 
+periods of time that a cache block has
 been absent from the cache before returning.  The Y-axis of the graph
 is the number of cache blocks that were absent from the cache for that
 long before returning.  For example, if 10 cache blocks had been
 recached after being absent from the cache for 40,000 cycles each,
 then the 4th bin of the graph would have the value of 10.
+Note that the Y-axis for each chart is different to show the interesting parts of the charts.
+For example, the 8MB LLC results in many fewer misses than the 4MB LLC, 
+so the Y-axis is much smaller in most benchmarks.
 
 A TTR graph shows the distribution of how long cache blocks were
 absent.  The intuition of how to read a TTR graph is as follows.  A
@@ -67,11 +72,18 @@ when a cache block was evicted it was soon recached, suggesting that
 cache block should not have been evicted in the first place.  Many TTR
 graphs include humps in their distribution.  Humps that appear at low
 TTR values are generally worse than humps that appear at high TTR
-values, although the magnitude of the hump must also be considered.
-High magnitude humps are generally worse than low magnitude humps,
-although the position of these humps must also be considered.
+values, although the Y magnitude of the hump must also be considered.
+High Y magnitude humps are generally worse than low magnitude humps,
+although the X location of these humps is also important.
 
-The particular TTR graph in FIGURE HERE is comprised of four TTR
-graphs positioned one above another, each of them representing one of
-four different runs of the same benchmark, but using different caching
-policies.  TODO FINISH THIS
+A series of charts appears at the end of this paper detailing a set of 
+results from our simulations.
+Details of how these data were generated can be found in Section~\ref{sec:methodology}.
+CG is an interesting comparison for this section because one can clearly 
+see the distinction between the different caching policies. 
+In particular, LRU and NRU look very similar and SRRIP shifts the chart 
+slightly to the right which corresponds with an increase in performance.
+DRRIP shows a significant change that will be discussed more later, but 
+intuitively shows a drastic increase in caching behavior by reducing the 
+number of misses and increasing the time between subsequent misses to the 
+same line.
