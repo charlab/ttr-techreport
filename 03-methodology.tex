@@ -38,7 +38,17 @@ A low TTR number means that the cache block was evicted and then
 recached very soon afterwards, suggesting that it should not have
 been evicted in the first place.
 
-In FIGURE HERE, we see an example of a TTR graph.  A TTR graph is a
+\begin{figure*}
+  \centerline{
+  \psfig{figure=figures/cg_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
+  \psfig{figure=figures/cg_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
+  }
+\caption{CG Time to Recache}
+\label{Fig:performance:cg}
+\end{figure*}
+
+In Figure~\ref{Fig:performance:cg}, we see an example of a TTR graph for 
+the CG benchmark for both a 4MB LLC and an 8MB LLC.  A TTR graph is a
 line-graph representation of a histogram of TTR values.  The majority of
 the results in this paper are presented in this format.  The bins of a
 TTR graph, along the X-axis,  are 10,000 cycle-long periods of time that a cache block has
