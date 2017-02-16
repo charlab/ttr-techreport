@@ -1,30 +1,36 @@
 \section{Results}
 
 In this section we show the results of TTR tracking for our different
-benchmarks and cache management policies.  We also include IPC and
-MPKI numbers for comparison.  As stated
-earlier, the purpose of this paper is not to showcase the relative
+benchmarks and cache management policies.  
+% We also include IPC and MPKI numbers for comparison.  
+As stated earlier, the purpose of this paper is not to showcase the relative
 performance of one caching policy over another, but is rather to show
-the effectiveness of the TTR visualization method at giving some
-additional insight into system performance.
+the effectiveness of the TTR visualization method at giving
+insight into system performance based on cache behavior.
 Furthermore, no attempt was made to ensure that the simulation windows
 we used in gathering these statistics is necessarily representative of
-program execution overall.  For this reason, our performance numbers
-for the cache policies considered here may differ from previously published
-results for those cache policies.  Our goal is merely to show that TTR
+program execution overall.  
+For this reason, the performance numbers for the cache policies considered 
+here may differ from previously published results for those cache policies.
+Our goal is merely to show that TTR
 visualization is a useful way to explain the performance we observed.
 
 Our results are presented by showing the TTR graphs for LRU, NRU,
 SRRIP, and DRRIP for each of the benchmarks, using both 4~MB and
-8~MB.  The third graph shows the IPC and MPKI for each of those runs,
-again separated by the two different cache sizes.  We have organized
-the figures this way to make it easier to compare the shapes of the
-TTR visualizations with the observed IPCs and MPKIs for each
-benchmark.  When looking at the TTR visualizations for a given
+8~MB.  
+% The third graph shows the IPC and MPKI for each of those runs,
+% again separated by the two different cache sizes.  We have organized
+% the figures this way to make it easier to compare the shapes of the
+% TTR visualizations with the observed IPCs and MPKIs for each
+% benchmark.  
+When looking at the TTR visualizations for a given
 benchmark and a given cache size, the scale for all four component
 graphs (LRU, NRU, SRRIP, and DRRIP) is the same in both X and Y
 directions, so they are all directly comparable.  When moving between
 the 4~MB and 8~MB visualizatoins, the scales may be different.
+Figure~\ref{Fig:performance:mg} shows some of the most interesting 
+results, and Figures~\ref{Fig:performance2}-\ref{Fig:performance4} 
+can be found at the end of the paper.
 
 % This is the format for discussing in the paper
 
@@ -33,88 +39,22 @@ the 4~MB and 8~MB visualizatoins, the scales may be different.
   \psfig{figure=figures/ep_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/ep_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
   }
-\caption{Time to Recache}
-\label{Fig:performance:ep}
-\end{figure*}
-\begin{figure*}
+% \caption{Time to Recache}
+% \label{Fig:performance:ep}
+% \end{figure*}
+% \begin{figure*}
   \centerline{
   \psfig{figure=figures/lu_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/lu_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
   }
-\caption{Time to Recache}
-\label{Fig:performance:lu}
-\end{figure*}
-\begin{figure*}
+% \caption{Time to Recache}
+% \label{Fig:performance:lu}
+% \end{figure*}
+% \begin{figure*}
   \centerline{
   \psfig{figure=figures/mg_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
   \psfig{figure=figures/mg_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
   }
 \caption{Time to Recache}
 \label{Fig:performance:mg}
-\end{figure*}
-
-% This is the format for including at the end
-\begin{figure*}
-\centerline{
-  \psfig{figure=figures/sp_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/sp_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/astar_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/astar_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/bwaves_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/bwaves_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/dealII_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/dealII_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\caption{Time to Recache}
-\label{Fig:performance2}
-\end{figure*}
-
-\begin{figure*}
-%\hspace{1.6in}
-\centerline{
-  \psfig{figure=figures/ua_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/ua_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/bzip2_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/bzip2_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/GemsFDTD_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/GemsFDTD_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/gobmk_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/gobmk_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\caption{Time to Recache}
-\label{Fig:performance3}
-\end{figure*}
-
-\begin{figure*}
-%\hspace{1.6in}
-\centerline{
-  \psfig{figure=figures/gromacs_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/gromacs_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/h264ref_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/h264ref_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/hmmer_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/hmmer_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\centerline{
-  \psfig{figure=figures/leslie3d_recache4MB.eps,width=\columnwidth,height=0.18\paperheight}
-  \psfig{figure=figures/leslie3d_recache8MB.eps,width=\columnwidth,height=0.18\paperheight}
-}
-\caption{Time to Recache}
-\label{Fig:performance4}
 \end{figure*}

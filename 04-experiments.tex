@@ -1,10 +1,12 @@
 \section{Methodology}
 \label{sec:methodology}
-\subsection{Simulation Parameters}
 
 We gathered our TTR and other performance statistics using the
 Virtutech Simics~\cite{magnussonchristensson02} full 
-system simulator version 3.0.x.  We model an 8-way Chip Multiprocessor
+system simulator version 3.0.x.  
+
+\subsection{Simulation Parameters}
+We model an 8-way Chip Multiprocessor
 of ultraSPARC III cores.   Our processing cores
 are in-order with 32~KB 8-way L1 instruction and data
 caches with a 3 cycle latency.  Each core also has a private, 256~KB
@@ -93,7 +95,7 @@ behaviors of varied caching policies with respect to the TTR metric.
 
 \subsection{TRR Data Collection}
 
-We collect TTR data in real time during our Simics simulation runs.
+We collect TTR data at run time during our Simics simulations.
 Every time a block is evicted from the LLC its address is added to a
 list that tracks all of the previous 8 million evictions from the
 cache, along with a timestamp of when the eviction occurred. 
@@ -105,3 +107,5 @@ the TTR bin corresponding to the amount of time the cache block spent
 out of the cache.  We only track recaches that happen within 40
 million cycles, as recaches within this window seem to have the
 greatest impact on performance.
+Depending on the application of TTR, it may be interesting to 
+extend or reduce the window in which recaches are tracked.

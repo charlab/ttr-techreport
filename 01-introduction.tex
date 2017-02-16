@@ -50,4 +50,7 @@ policies perfor better than others.  This metric refers
 to the time spent by a cache line after it has been evicted from the
 LLC and before it is fetched again.  It is related to, but distinct
 from, the notion of ``reuse distance,'' which refers to the amount of
-time between successive accesses to a given cache block.
+time between successive accesses to a given cache block. 
+A long TTR for a given cache line would indicate that the cache policy
+correctly identified that the line could be evicted without causing
+the memory system to bring the line back.

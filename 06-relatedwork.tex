@@ -1,12 +1,11 @@
 \section{Related Work}
 
 Creating good cache line replacement policies is a well
-studied area of computer architecture, and several recent papers have
-worked on this problem.  In general it is the goal of every cache
+studied area of computer architecture, and several papers have
+addressed on this problem.  In general it is the goal of every cache
 policy design to keep around truly reused data while evicting data
 that will not be reused for a very long time, but we mention here as
-related work the
-studies whose approach explicitly looks at reuse distance or some
+related work the studies whose approach explicitly looks at reuse distance or some
 variation of it as a part of its design or motivation.
 
 Scavenger~\cite{basukirman07} investigates the concept of eviction-use distance
@@ -34,7 +33,7 @@ histograms of the next-use of the cache blocks brought in by them.
 Some of the ways of the LLC are dedicated to blocks brought in by the
 delinquent PCs, so that they do not pollute the rest of the ways.
 This work only tracks reuse within a few dozen LLC misses of when a
-block is last accessed, so their notion of reuse is much mor
+block is last accessed, so their notion of reuse is much more
 resitricted than that in TTR visualization.
 
 %The methods used
